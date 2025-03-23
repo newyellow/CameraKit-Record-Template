@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+#camerakit-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poweredbysnap-logo {
+  width: auto; /* Set to auto to avoid stretching */
+  position: absolute; /* Position relative to the viewport */
+  bottom: -40px; /* Adjust to desired distance from the bottom */
+  left: 40px; /* Adjust to desired distance from the left */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align content within the element to the left */
+  z-index: 900;
+}
+
+.poweredbysnap-logo > img {
+  width: 180px;
+}
+
+#controls {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
+#outline {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--button-size, 200px); /* Default for mobile */
+  width: var(--button-size, 200px);
+  border: none;
+  z-index: 900;
+  transition: background-color 0.2s ease;
+}
+
+#record-button {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--button-size, 200px); /* Default for mobile */
+  width: var(--button-size, 200px);
+  background-image: url("../assets/RecordButton.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  z-index: 1000;
+  transition: background-color 0.2s ease;
+}
+
+#record-button.pressed {
+  background-color: green; /* Change to green when pressed */
+  content: "Recording..."; /* Optionally add text */
+}
+
+#action-buttons {
+  position: absolute;
+  bottom: 20%; /* Adjust the distance from the bottom of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%); /* Offset by half the width and height */
+  display: flex; /* Enables flex layout */
+  justify-content: center; /* Aligns buttons horizontally */
+  align-items: center; /* Aligns buttons vertically */
+  z-index: 1000; /* Ensure visibility above other elements */
+  flex-wrap: wrap; /* Allows wrapping if container width is too small */
+}
+
+#back-button-container {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  z-index: 1000;
+}
+
+#back-button {
+  transform: none;
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  padding: 0%;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+#back-button img {
+  /* Add this if your button uses an image */
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+#back-button:active {
+  transform: translate(2px, 2px);
+}
+
+#share-button {
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  transform: translate(-25%, 0);
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  padding: 0%;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+#share-button img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+#share-button:active {
+  transform: translate(calc(-25% + 2px), 2px);
+}
+
+#download-button {
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  transform: translate(25%, 0);
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  padding: 0%;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+#download-button img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+#download-button:active {
+  transform: translate(calc(25% + 2px), 2px);
+}
+
+#switch-cam {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  z-index: 950;
+}
+
+#switch-button {
+  height: 70px;
+  width: 70px;
+  background-image: url("../assets/SwitchButton.png"); /* Green background */
+  background-size: contain; /* Ensure the image covers the button */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Preent tiling */
+  background-color: transparent;
+  border: none;
+  user-select: none; /* Disable text selection */
+  outline: none;
+  transition: transform 0.2s ease; /* Smooth hover animation */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+#switch-button:active {
+  transform: translate(5%, 5%); /* Only scale without affecting translation */
+}
+
+#loading {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  z-index: 900;
+  display: none; /* Hidden by default */
+}
+
+#loading-icon {
+  height: 200px;
+  width: 200px;
+  animation: spin 2s linear infinite; /* Apply the spin animation */
+}
+
+/* Keyframes for the rotation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Desktop-specific styles */
+.desktop #outline,
+.desktop #record-button {
+  height: 70px;
+  width: 70px;
+}
+
+.desktop #share-button {
+  height: 70px;
+  width: 70px;
+}
+
+.desktop #download-button {
+  height: 70px;
+  width: 70px;
+}
+
+.desktop #back-button {
+  height: 50px;
+  width: 50px;
+}
+
+/* Hide switch button on desktop */
+.desktop #switch-cam {
+  display: none;
+}
