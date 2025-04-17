@@ -7,44 +7,52 @@
   <meta name="description" content="Camera Kit Template" />
   <meta name="robots" content="noindex" />
   <title>Camera Kit Template</title>
-  
+
   <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
-  <canvas id="camerakit-canvas"></canvas>
+  <main id="wrapper">
+    <canvas id="camerakit-canvas"></canvas>
+  </main>
 
-  <div id="switch-cam">
-    <button id="switch-button" class="button-class"></button>
-  </div>
+  <div id="ui-layer">
 
-  <div class="poweredbysnap-logo">
-    <img id="image" src="./assets/Powered_bysnap.png" alt="Powered by Snap" />
-  </div>
+    <!-- <div id="ui-left-top">
+      <button id="back-button" class="button-class"></button>
+    </div> -->
 
-  <div id="controls">
-    <img id="outline" src="./assets/RecordOutline.png" />
-    <button id="record-button" class="button-class"></button>
-  </div>
+    <div id="ui-right-top">
+      <button id="switch-button" class="button-class"></button>
+    </div>
 
-  <div id="action-buttons" style="display: none">
-    <button id="share-button" class="button-class">
-      <img id="shareImg" src="./assets/ShareButton.png" alt="share" />
-    </button>
+    <div id="ui-bottom-row">
+      <div id="ui-bottom-left">
 
-    <button id="download-button" class="button-class">
-      <img id="downloadImg" src="./assets/DownloadButton.png" alt="download" />
-    </button>
-  </div>
+      </div>
 
-  <div id="back-button-container" style="display: none">
-    <button id="back-button" class="button-class">
-      <img id="backImg" src="./assets/BackButton.png" alt="back" />
-    </button>
-  </div>
+      <div id="ui-bottom-center">
+        <button id="record-button" class="button-class">
+          <div id="record-button-progress"></div>
+          <div id="record-button-icon"></div>
+          <div id="record-button-base"></div>
+        </button>
+      </div>
 
-  <div id="loading">
-    <img id="loading-icon" src="./assets/LoadingIcon.png" alt="loading" />
+      <div id="ui-bottom-right">
+        <button id="share-button" class="button-class"></button>
+      </div>
+    </div>
+
+    <div class="poweredbysnap-logo">
+      <img id="image" src="./assets/powered_by_snap_thin.png" alt="Powered by Snap" />
+    </div>
+
+    <!-- <div id="loading">
+      <img id="loading-icon" src="./assets/LoadingIcon.png" alt="loading" />
+    </div> -->
+
+    <div id="photo-snapshot-effect"></div>
   </div>
 
   <script type="module" src="/src/main.js"></script>

@@ -39,6 +39,41 @@ function isMobile() {
     return false;
 }
 
+// get the extension by split ; and then split /
+function getMediaExtension (mimeString) {
+    const mimeParts = mimeString.split(';');
+    const mimeType = mimeParts[0].trim();
+    const mediaParts = mimeType.split('/');
+    
+    if (mediaParts.length > 1) {
+        return mediaParts[1];
+    }
+    
+    return null;
+}
+
+function getDeviceDensityWidth (quality = 1.0) {
+    const devicePixelRatio = window.devicePixelRatio || 1;
+    return Math.round(window.innerWidth * devicePixelRatio * quality);
+}
+
+function getDeviceDensityHeight (quality = 1.0) {
+    const devicePixelRatio = window.devicePixelRatio || 1;
+    return Math.round(window.innerHeight * devicePixelRatio * quality);
+}
+
+function overrideConsoleLog (enabled)
+{
+    if(enabled == false)
+    {
+        console.log = function(){};
+    }
+}
+
 export default{
-    isMobile
+    isMobile,
+    getMediaExtension,
+    getDeviceDensityWidth,
+    getDeviceDensityHeight,
+    overrideConsoleLog
 };
